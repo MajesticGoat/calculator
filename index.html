@@ -41,12 +41,17 @@
     let number1 = 0;
     let number2 =0;
     let operator = 0;
+    let display = []
 
+    //Adds event listeners to every button.
+    //Puts the value of the buttom clicked into the display
+    //Need to...somehow store as variables
     const allButtons = document.querySelectorAll('.btn');
     allButtons.forEach(button => {
         button.addEventListener('click', (e) => {
+            display.push(e.target.innerHTML)
             displayNumber = document.querySelector('#result');
-            displayNumber.innerHTML= e.target.innerHTML;
+            displayNumber.innerHTML= display.join('')           
         })
     });
    
@@ -56,6 +61,7 @@
     let divide = (number1, number2) => number1 / number2;
 
     let operate = (number1, operator, number2) => {
+        
 
     }
 
