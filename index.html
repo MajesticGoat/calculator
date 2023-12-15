@@ -11,8 +11,8 @@
     <div class="container">
         <div class="calculator">
             <form>
-                <div class="display">
-                    <input type="text" name="display">
+                <div class="display-container">
+                    <input type="text" name="display" class="display">
                 </div>
                 <div class="buttons">
                     <div class="number-buttons">
@@ -54,7 +54,7 @@
     let number1 = 0;
     let number2 =0;
     let operator = 0;
-    let display = []
+    let display = "";
 
     //Adds event listeners to every button.
     //Puts the value of the buttom clicked into the display
@@ -62,11 +62,23 @@
     const allButtons = document.querySelectorAll('.btn');
     allButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            display.push(e.target.innerHTML)
-            displayNumber = document.querySelector('#result');
-            displayNumber.innerHTML= display.join('')           
+        if (e.target.value != "Clear") {
+            displayNumber = document.querySelector('.display');
+            displayNumber.value += e.target.value;
+        };
         })
     });
+
+    const clearScreen = document.querySelector('#btnclear');
+    clearScreen.addEventListener('click', clear);
+
+    function clear() {
+        displayNumber = document.querySelector('.display');
+        displayNumber.value = "";
+        number1 = 0;
+        number2 = 0;
+        operator = 0;
+    };
    
     let add = (number1, number2) => number1 + number2;
     let subtract = (number1, number2) => number1 - number2;

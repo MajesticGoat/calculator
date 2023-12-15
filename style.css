@@ -22,6 +22,10 @@
     height: 60px;
 }
 
+form .display-container .display{
+    text-align: right;
+}
+
 
 .buttons {
     display: flex;
